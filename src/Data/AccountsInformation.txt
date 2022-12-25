@@ -1,0 +1,9 @@
+
+
+Account Number : 321
+Name : 
+Address : 321
+Mail : 321
+Phone Number : 321
+Birthday : 321
+Balance: 0
