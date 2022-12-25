@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 public class Access {
-
     public static void access() throws IOException {
         System.out.println("Please enter want to access to account number");
         Scanner keyboard = new Scanner(System.in);
