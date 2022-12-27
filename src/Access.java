@@ -1,5 +1,6 @@
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Access {
     public static void access() throws IOException {
         System.out.println("Please enter want to access to account number");
@@ -8,7 +9,7 @@ public class Access {
 
         if (access == Account.accountNumber) {
             System.out.println("\nAccount Number : " + Account.accountNumber + "\nName : " + Account.name +
-                    "\nAddress : " + Account.address + "\nMail : " + Account.mail  +
+                    "\nAddress : " + Account.address + "\nMail : " + Account.mail +
                     "\nPhone Number : " + Account.phoneNumber + "\nBirthday : " + Account.birthDay);
 
         } else {
