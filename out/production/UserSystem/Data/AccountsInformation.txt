@@ -1,0 +1,17 @@
+
+
+Account Number : 321
+Name : 
+Address : 321
+Mail : 321
+Phone Number : 321
+Birthday : 321
+Balance: 0
+
+Account Number : 220509017
+Name : Eren Şener
+Address : Üniversite
+Mail : senereren@gmail.com
+Phone Number : 32132131
+Birthday : 321321321
+Balance: 0
