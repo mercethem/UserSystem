@@ -1,5 +1,7 @@
-import java.io.*;
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Account {
     public static long accountNumber;
     public static String name;
@@ -63,17 +65,17 @@ public class Account {
     }
 
 
-
     public static void withdraw() throws IOException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long money = keyboard.nextLong();
-        if (Account.balance >= money){
+        if (Account.balance >= money) {
             Account.balance = Account.balance - money;
-            System.out.println("Your new balance is "+balance);
-            keyboard.nextLine();}
-        else{
-            System.out.println("Your balance is not enough! Please enter different withdraw.");}
+            System.out.println("Your new balance is " + balance);
+            keyboard.nextLine();
+        } else {
+            System.out.println("Your balance is not enough! Please enter different withdraw.");
+        }
         Menu.menu();
     }
 
@@ -82,7 +84,7 @@ public class Account {
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long money = keyboard.nextLong();
         Account.balance = Account.balance + money;
-        System.out.println("Your new balance is "+balance);
+        System.out.println("Your new balance is " + balance);
 
         Menu.menu();
     }
@@ -116,7 +118,7 @@ class SavingsAccount extends Account {
 
 class LoanAccount extends Account {
 
-    public LoanAccount(long accountNumber, String name, String address, String mail,String phoneNumber, String birthDay, long balance) throws FileNotFoundException {
+    public LoanAccount(long accountNumber, String name, String address, String mail, String phoneNumber, String birthDay, long balance) throws FileNotFoundException {
         super(accountNumber, name, address, mail, phoneNumber, birthDay, balance);
     }
 }
