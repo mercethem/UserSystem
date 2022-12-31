@@ -21,7 +21,6 @@ public class Account {
         this.phoneNumber = phoneNumber;
         this.birthDay = birthDay;
         this.balance = balance;
-
     }
 
     public long getAccountNumber() {
