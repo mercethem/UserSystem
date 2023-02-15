@@ -1,9 +1,12 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Account {
+
     public static long accountNumber;
+
     public static String name;
     public static String address;
     public static String mail;
@@ -64,7 +67,7 @@ public class Account {
     }
 
 
-    public static void withdraw() throws IOException {
+    public static void withdraw() throws IOException, SQLException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long money = keyboard.nextLong();
@@ -78,7 +81,7 @@ public class Account {
         Menu.menu();
     }
 
-    public static void deposit() throws IOException {
+    public static void deposit() throws IOException, SQLException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long money = keyboard.nextLong();
@@ -86,38 +89,5 @@ public class Account {
         System.out.println("Your new balance is " + balance);
 
         Menu.menu();
-    }
-
-}
-
-class SavingsAccount extends Account {
-    private long deposit;
-    private long withdraw;
-
-    public long getDeposit() {
-        return deposit;
-    }
-
-    public long getWithdraw() {
-        return withdraw;
-    }
-
-    public SavingsAccount(long accountNumber, String name, String address, String mail, String phoneNumber, String birthDay, long balance) throws FileNotFoundException {
-        super(accountNumber, name, address, mail, phoneNumber, birthDay, balance);
-    }
-
-    public static void deposit(long deposit) {
-        balance += deposit;
-    }
-
-    public void withdraw(long withdraw) {
-        balance -= withdraw;
-    }
-}
-
-class LoanAccount extends Account {
-
-    public LoanAccount(long accountNumber, String name, String address, String mail, String phoneNumber, String birthDay, long balance) throws FileNotFoundException {
-        super(accountNumber, name, address, mail, phoneNumber, birthDay, balance);
     }
 }
