@@ -1,15 +1,16 @@
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
-    public static void menu() throws IOException {
+    public static void menu() throws IOException, SQLException {
         System.out.println("What are you want ?" +
                 "\nAccess an account = 1" +
                 "\nCreate an account = 2 " +
                 "\nDelete an account = 3 " +
                 "\nTransfer money to account = 4 " +
                 "\nWithdraw money from account = 5 " +
-                "\nExit the menu!!! = 0");
+                "\nExit the menu!!! {Temporary for SQL Connection Control = 0");
         Scanner keyboard = new Scanner(System.in);
         byte i = keyboard.nextByte();
         options:
@@ -22,12 +23,12 @@ public class Menu {
                 OpenAndClose.closeAccount();
                 break;
             } else if (i == 4) {
-                System.out.println("Please enter how much money deposit to your account : ");
-                Account.deposit();
+                DepositAndWithdraw.deposit();
             } else if (i == 5) {
-                System.out.println("Please enter how much money withdraw to your account : ");
-                Account.withdraw();
+                DepositAndWithdraw.withdraw();
             } else if (i == 0) {
+                System.out.println();
+                DBLayer.DataBase();
                 break options;
             } else {
                 System.out.println("Please enter upper options.");
