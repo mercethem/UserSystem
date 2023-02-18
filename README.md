@@ -5,8 +5,6 @@ Viewing, creating, deleting and depositting and withdrawing money and this optio
 
 The Menu is as shown below
 
-![ Alt text](menu.png)  [](menu.png)
-
-![ Alt text](presentation.png)  [](presentation.png)
+![ Alt text](presentation.jpg)  [](presentation.jpg)
 
 
