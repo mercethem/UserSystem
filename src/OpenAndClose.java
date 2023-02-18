@@ -25,11 +25,14 @@ public class OpenAndClose {
             Statement myStmt = myConnection.createStatement();
             ResultSet myQuery = myStmt.executeQuery("INSERT INTO UserSystemAccountsStock.dbo.AccountsInformations(AccountNumber, [Name-Surname], [Address], [Mail], [PhoneNumber], [Birthday],[Balance]) " +
                     "VALUES ('" + accountNumber + "' ,'" + nameSurname + "','" + address + "','" + mail + "','" + phoneNumber + "','" + birthday + "', '"+balance+"')");
+            myConnection.close();
+
         }
         //TODO eğer aynı accountNumber'de biri varsa if else kullanarak aktifleşmesini engelle
         catch (Exception e){
             System.out.println(e);
         }
+
         Menu.menu();
     }
 
@@ -46,6 +49,7 @@ public class OpenAndClose {
                 Connection myConnection = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
                 Statement myStmt = myConnection.createStatement();
                 ResultSet myQuery = myStmt.executeQuery(" DELETE FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber =  '" + deleteAccountNumber + "' ");
+                myConnection.close();
             } else if (questionDelete == 0) {
                 Menu.menu();
             } else {
