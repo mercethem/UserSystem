@@ -10,7 +10,7 @@ public class Menu {
                 "\nDelete an account = 3 " +
                 "\nTransfer money to account = 4 " +
                 "\nWithdraw money from account = 5 " +
-                "\nExit the menu!!! {Temporary for SQL Connection Control = 0");
+                "\nExit the menu!!! = 0");
         Scanner keyboard = new Scanner(System.in);
         byte i = keyboard.nextByte();
         options:
