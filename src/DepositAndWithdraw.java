@@ -8,7 +8,7 @@ public class DepositAndWithdraw {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter account number for deposit : ");
         long accountNumber = keyboard.nextLong();
-        System.out.println("Please enter how much do you want to withdraw to your balance ?");
+        System.out.println("Please enter how much do you want to deposit to your balance ?");
         long deposit = keyboard.nextLong();
         try {
             Connection myConnection = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
@@ -24,11 +24,12 @@ public class DepositAndWithdraw {
         } catch (Exception e) {
             System.out.println(e);
         }
+        Menu.menu();
     }
 
     public static void withdraw() throws IOException, SQLException {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter account number for deposit : ");
+        System.out.println("Please enter account number for withdraw : ");
         long accountNumber = keyboard.nextLong();
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long withdraw = keyboard.nextLong();
@@ -39,6 +40,7 @@ public class DepositAndWithdraw {
             ResultSet myQuery = myStmt.executeQuery("IF EXISTS (SELECT Balance FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber = '" + accountNumber + "')" +
                     "BEGIN UPDATE UserSystemAccountsStock.dbo.AccountsInformations SET Balance =  Balance - '" + withdraw + "' WHERE AccountNumber = '" + accountNumber + "' END");
             myConnection.close();
+            Menu.menu();
         } catch (Exception e) {
             System.out.println(e);
         }

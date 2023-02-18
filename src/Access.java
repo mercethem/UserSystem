@@ -21,7 +21,7 @@ public class Access {
                 System.out.printf("\nAccount Number: %s\nName Surname: %s\nAdress: %s\ne-mail: %s\nPhone Number: %s\nBirthday: %s\nBalance: %s \n", myQuery.getString("AccountNumber"), myQuery.getString("Name-Surname"),
                         myQuery.getString("Address"), myQuery.getString("Mail"), myQuery.getString("PhoneNumber")
                         , myQuery.getString("Birthday"), myQuery.getString("Balance"));
-                myConnection.close();
+
             }
             Menu.menu();
 
