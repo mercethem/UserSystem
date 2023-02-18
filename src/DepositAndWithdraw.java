@@ -11,15 +11,15 @@ public class DepositAndWithdraw {
         System.out.println("Please enter how much do you want to withdraw to your balance ?");
         long deposit = keyboard.nextLong();
         try {
-            Connection myConn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
-            Statement myStmt = myConn.createStatement();
+            Connection myConnection = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
+            Statement myStmt = myConnection.createStatement();
             //ResultSet myQuery = myStmt.executeQuery("SELECT * FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber LIKE '"+ accountNumber + "' SELECT Balance FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE Balance");
             //long result = myQuery + deposit;
             //ResultSet myQuery = myStmt.executeQuery("SELECT*FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber = '"+ accountNumber +"' " +
             //       "SELECT SUM(UserSystemAccountsStock.dbo.AccountsInformations.Balance + '"+ deposit +"') FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE Balance" );
             ResultSet myQuery = myStmt.executeQuery("IF EXISTS (SELECT Balance FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber = '" + accountNumber + "')" +
                     "BEGIN UPDATE UserSystemAccountsStock.dbo.AccountsInformations SET Balance =  Balance + '" + deposit + "' WHERE AccountNumber = '" + accountNumber + "' END");
-
+            myConnection.close();
             Menu.menu();
         } catch (Exception e) {
             System.out.println(e);
@@ -34,14 +34,11 @@ public class DepositAndWithdraw {
         long withdraw = keyboard.nextLong();
 
         try {
-            Connection myConn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
-            Statement myStmt = myConn.createStatement();
-            //ResultSet myQuery = myStmt.executeQuery("SELECT * FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber LIKE '"+ accountNumber + "' SELECT Balance FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE Balance");
-            //long result = myQuery + deposit;
-            //ResultSet myQuery = myStmt.executeQuery("SELECT*FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber = '"+ accountNumber +"' " +
-            //       "SELECT SUM(UserSystemAccountsStock.dbo.AccountsInformations.Balance + '"+ deposit +"') FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE Balance" );
+            Connection myConnection = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
+            Statement myStmt = myConnection.createStatement();
             ResultSet myQuery = myStmt.executeQuery("IF EXISTS (SELECT Balance FROM UserSystemAccountsStock.dbo.AccountsInformations WHERE AccountNumber = '" + accountNumber + "')" +
                     "BEGIN UPDATE UserSystemAccountsStock.dbo.AccountsInformations SET Balance =  Balance - '" + withdraw + "' WHERE AccountNumber = '" + accountNumber + "' END");
+            myConnection.close();
         } catch (Exception e) {
             System.out.println(e);
         }
