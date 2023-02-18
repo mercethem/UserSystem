@@ -6,8 +6,8 @@ public class Access {
     public static void access() throws IOException, SQLException {
         Scanner keyboard = new Scanner(System.in);
 
-        Connection myConn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
-        Statement myStmt = myConn.createStatement();
+        Connection myConnection = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T9F59R5\\MSSQLSERVER:1433;useSSL=false;encrypt=false;integratedSecurity=true;");
+        Statement myStmt = myConnection.createStatement();
         long accountNumber = 0;
         String nameSurname = null;
 
@@ -21,6 +21,7 @@ public class Access {
                 System.out.printf("\nAccount Number: %s\nName Surname: %s\nAdress: %s\ne-mail: %s\nPhone Number: %s\nBirthday: %s\nBalance: %s \n", myQuery.getString("AccountNumber"), myQuery.getString("Name-Surname"),
                         myQuery.getString("Address"), myQuery.getString("Mail"), myQuery.getString("PhoneNumber")
                         , myQuery.getString("Birthday"), myQuery.getString("Balance"));
+                myConnection.close();
             }
             Menu.menu();
 
@@ -32,11 +33,13 @@ public class Access {
                 System.out.printf("\nAccount Number: %s\nName Surname: %s\nAdress: %s\ne-mail: %s\nPhone Number: %s\nBirthday: %s\nBalance: %s \n", myQuery2.getString("AccountNumber"), myQuery2.getString("Name-Surname"),
                         myQuery2.getString("Address"), myQuery2.getString("Mail"), myQuery2.getString("PhoneNumber")
                         , myQuery2.getString("Birthday"), myQuery2.getString("Balance"));
+                myConnection.close();
             }
             Menu.menu();
 
         } else {
             System.out.println("Please enter true data");
+            myConnection.close();
             Menu.menu();
         }
     }
