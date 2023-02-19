@@ -5,9 +5,11 @@ Viewing, creating, deleting and depositting and withdrawing money and this optio
 
 The presentation is as shown below
 
-![ Alt text](Uml.jpg)  [](Uml.jpg)
+![ Alt text](flowchart.jpg)  [](flowchart.jpg)
 
 
 ![ Alt text](presentation.jpg)  [](presentation.jpg)
 
 
+
+![ Alt text](uml.jpg)  [](uml.jpg)
